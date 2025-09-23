@@ -27,28 +27,21 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+<img width="912" height="552" alt="Screenshot 2025-09-23 191756" src="https://github.com/user-attachments/assets/69ba6409-5a27-4351-8946-33dde6bc2eb7" />
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+<img width="913" height="549" alt="Screenshot 2025-09-23 191810" src="https://github.com/user-attachments/assets/728dcfea-90ca-486b-9a69-d960e9114b40" />
+
 
 ### Assumptions
-- 
-- 
-- 
 
----
+A member must enroll in at least one program.
+
+A program must be led by at least one trainer.
+
+Payments are tied to members and programs (not to trainers directly).
 
 # Scenario B: City Library Event & Book Lending System
 
@@ -65,33 +58,25 @@ The Central Library wants to manage book lending and cultural events.
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-<img width="992" height="640" alt="Screenshot 2025-09-23 191451" src="https://github.com/user-attachments/assets/69dc3dfe-8dad-43e0-b707-9b73336628d4" />
-
+<img width="803" height="642" alt="Screenshot 2025-09-23 192200" src="https://github.com/user-attachments/assets/c9e4355c-f3f5-470e-9379-5cb815a36104" />
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+<img width="924" height="411" alt="Screenshot 2025-09-23 192220" src="https://github.com/user-attachments/assets/665e76c8-5eef-4216-9a15-5ba95b5b6c66" />
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+<img width="924" height="424" alt="Screenshot 2025-09-23 192237" src="https://github.com/user-attachments/assets/124508a1-79b6-4850-881a-aeed9dbb98c3" />
+
 
 ### Assumptions
-- 
-- 
-- 
 
----
+A member must exist before borrowing books or registering for events.
+
+A book may or may not be borrowed; not all books will always have loans.
+
+Fines are only generated if a book is returned late.
 
 # Scenario C: Restaurant Table Reservation & Ordering
 
@@ -108,32 +93,27 @@ A popular restaurant wants to manage reservations, orders, and billing.
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
+<img width="763" height="786" alt="Screenshot 2025-09-23 192323" src="https://github.com/user-attachments/assets/c2e519d0-3ea9-4cc7-96d4-6f491fcc6101" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+<img width="909" height="332" alt="Screenshot 2025-09-23 192335" src="https://github.com/user-attachments/assets/f239fb79-5de0-4536-8268-1f9d4b216a7c" />
+<img width="918" height="125" alt="Screenshot 2025-09-23 192349" src="https://github.com/user-attachments/assets/4e22300c-0908-4e39-8aa3-a7c5a0c7ba98" />
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+<img width="923" height="536" alt="Screenshot 2025-09-23 192403" src="https://github.com/user-attachments/assets/e23b42c5-5262-47aa-bcfe-7b7ff0c6879c" />
+
 
 ### Assumptions
-- 
-- 
-- 
 
----
+A customer may exist without making a reservation or placing an order.
+
+A reservation must be tied to both a customer and a restaurant.
+
+Every order must belong to a customer and a restaurant.
 
 ## Instructions for Students
 
