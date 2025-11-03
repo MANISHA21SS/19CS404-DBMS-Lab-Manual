@@ -105,123 +105,189 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+<img width="1384" height="468" alt="Screenshot 2025-11-03 161119" src="https://github.com/user-attachments/assets/1f49e184-bd37-428f-ae52-f299e64e5a74" />
 
-```sql
--- Paste your SQL code below for Question 1
+
+```
+CREATE TABLE Customers(
+     CustomerID INTEGER,
+     Name TEXT,
+     Email TEXT,
+     JoinDate DATETIME
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1232" height="488" alt="Screenshot 2025-11-03 161155" src="https://github.com/user-attachments/assets/aacba99a-d002-4b86-ba7d-d8632b0124a4" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="1408" height="447" alt="Screenshot 2025-11-03 161215" src="https://github.com/user-attachments/assets/63db55dd-9abe-4809-a06e-04ebe5ae3dc9" />
 
-```sql
--- Paste your SQL code below for Question 2
+
+```
+CREATE TABLE Employees(
+    EmployeeID INTEGER PRIMARY KEY,
+    FirstName VARCHAR(255) NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) UNIQUE,
+    Salary DECIMAL(10,2) CHECK(Salary>0),
+    DepartmentID INTEGER,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
 ```
 
 **Output:**
+<img width="1228" height="505" alt="Screenshot 2025-11-03 161253" src="https://github.com/user-attachments/assets/11fab163-6218-4160-8a16-8ad2d18a4711" />
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="1407" height="313" alt="Screenshot 2025-11-03 161313" src="https://github.com/user-attachments/assets/b92cd50e-332b-49a4-8b22-f191587a2bf0" />
 
-```sql
--- Paste your SQL code below for Question 3
+
+```
+CREATE TABLE jobs(
+    job_id INT PRIMARY KEY,
+    job_title VARCHAR(50),
+    min_salary INT DEFAULT 8000,
+    max_salary INT DEFAULT NULL
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1232" height="413" alt="Screenshot 2025-11-03 161355" src="https://github.com/user-attachments/assets/5c1b58fb-6e49-452a-92b7-010b34ca7938" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="1408" height="367" alt="Screenshot 2025-11-03 161416" src="https://github.com/user-attachments/assets/fe2810ac-bd97-4b1d-811e-d69d1a9c83c4" />
 
-```sql
--- Paste your SQL code below for Question 4
+
+```
+ALTER TABLE employee
+ADD COLUMN first_name varchar(50);
+ALTER TABLE employee
+ADD COLUMN last_name varchar(50);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1245" height="399" alt="Screenshot 2025-11-03 161447" src="https://github.com/user-attachments/assets/533ac748-0486-44c6-a94a-d381319547b1" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="1411" height="513" alt="Screenshot 2025-11-03 161505" src="https://github.com/user-attachments/assets/644c86b3-72a5-446c-b988-c0cf31a3bd64" />
 
-```sql
--- Paste your SQL code below for Question 5
+
+```
+ALTER TABLE employee
+ADD COLUMN department_id INTEGER;
+ALTER TABLE employee
+ADD COLUMN manager_id INTEGER DEFAULT NULL;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1227" height="395" alt="Screenshot 2025-11-03 161539" src="https://github.com/user-attachments/assets/6d46f08a-3f95-4524-9b37-7fde8689dede" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="1405" height="367" alt="Screenshot 2025-11-03 161603" src="https://github.com/user-attachments/assets/dc214399-1227-48c1-9d19-6982738c5b0b" />
 
-```sql
--- Paste your SQL code below for Question 6
+
+```
+INSERT INTO Products(ProductID, ProductName, Price, Stock)
+SELECT ProductID, ProductName, Price, Stock
+FROM  Discontinued_products;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1236" height="379" alt="Screenshot 2025-11-03 161643" src="https://github.com/user-attachments/assets/225df2db-8fe3-4cd6-a3f5-8da067c00950" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="1408" height="506" alt="Screenshot 2025-11-03 161702" src="https://github.com/user-attachments/assets/fc1f65ed-b3df-418b-b2fc-8caa5b291233" />
 
-```sql
--- Paste your SQL code below for Question 7
+
+```
+INSERT INTO Customers(CustomerID, Name, Address, City, ZipCode)
+VALUES(306,'Diana Prince','Themyscira',NULL,NULL);
+INSERT INTO Customers(CustomerID, Name, Address, City, ZipCode)
+VALUES(307,'Bruce Wayne','Wayne Mano','Gotham','10007');
+INSERT INTO Customers(CustomerID, Name, Address, City, ZipCode)
+VALUES(308,'Peter Parker','Queens',NULL,'11375');
+
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1231" height="359" alt="Screenshot 2025-11-03 161808" src="https://github.com/user-attachments/assets/5b5a23fb-f0f1-4abe-900d-52da0cd6e0cf" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="1401" height="435" alt="Screenshot 2025-11-03 161828" src="https://github.com/user-attachments/assets/e5bf0f49-859c-464f-bdd3-ad70ee53c6d5" />
 
-```sql
--- Paste your SQL code below for Question 8
+
+```
+INSERT INTO Customers(CustomerID, Name,Address)
+VALUES(304,'Peter Parker','Spider St')
+SELECT CustomerID,Name,Address,City,ZipCode FROM Customers;
+
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1243" height="743" alt="Screenshot 2025-11-03 161901" src="https://github.com/user-attachments/assets/47ed228f-2cfd-4b1a-adb8-0614a62d1062" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="1402" height="416" alt="Screenshot 2025-11-03 161922" src="https://github.com/user-attachments/assets/70da7cea-ae85-42cd-83ab-0e101cacbbe2" />
 
-```sql
--- Paste your SQL code below for Question 9
+
+```
+CREATE TABLE Products(
+     ProductID INTEGER PRIMARY KEY,
+     ProductName TEXT UNIQUE NOT NULL,
+     Price REAL NOT NULL CHECK(Price>0),
+     StockQuantity INTEGER NOT NULL CHECK(StockQuantity >=0) 
+);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1230" height="368" alt="Screenshot 2025-11-03 161956" src="https://github.com/user-attachments/assets/9a28dfb3-12c9-4d3b-b8b9-64b00d3cff6c" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
 
-```sql
--- Paste your SQL code below for Question 10
+<img width="1407" height="464" alt="Screenshot 2025-11-03 162017" src="https://github.com/user-attachments/assets/33d3219b-941f-4e8b-b6cf-9a26d82bbe84" />
+
+
+```
+CREATE TABLE item(
+    item_id TEXT PRIMARY KEY,
+    item_desc TEXT NOT NULL,
+    rate INTEGER NOT NULL,
+    icom_id TEXT(4),
+    FOREIGN KEY (icom_id) REFERENCES company(com_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
 ```
 
 **Output:**
 
-![Output10](output.png)
+
+<img width="1235" height="438" alt="Screenshot 2025-11-03 162104" src="https://github.com/user-attachments/assets/01c65e36-298b-46cb-9bca-8ef84d51c57f" />
+
 
 
 ## RESULT
