@@ -1,4 +1,4 @@
-<img width="832" height="269" alt="image" src="https://github.com/user-attachments/assets/4058538c-2d22-4ffa-a1b6-559c44a25de2" /># Experiment 7: PL/SQL – Variables, Control Structures and Loops
+## Experiment 7: PL/SQL – Variables, Control Structures and Loops
 
 ## AIM
 To write and execute simple PL/SQL programs using variables, loops, and conditional statements.
@@ -211,4 +211,5 @@ END;
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
