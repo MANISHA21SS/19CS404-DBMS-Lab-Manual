@@ -1,4 +1,4 @@
-<img width="923" height="374" alt="image" src="https://github.com/user-attachments/assets/62559ce6-3525-45e6-98d2-d6e2c7f1f04b" /># Experiment 9: PL/SQL – Procedures and Functions
+# Experiment 9: PL/SQL – Procedures and Functions
 
 ## AIM
 To understand and implement procedures and functions in PL/SQL for performing various operations such as calculations, decision-making, and looping.
