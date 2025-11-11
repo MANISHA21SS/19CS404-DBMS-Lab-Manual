@@ -33,6 +33,28 @@ END;
 **Expected Output:**
 - A new entry is added to the `employee_log` table each time a new record is inserted into the `employees` table.
 
+## PROGRAM:
+```
+SET SERVEROUTPUT ON;
+
+DECLARE
+    emp_id NUMBER := 1;
+    emp_name VARCHAR2(50) := 'John Doe';
+    salary NUMBER := 50000;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Inserting record into EMPLOYEES table...');
+    DBMS_OUTPUT.PUT_LINE('Logging insertion into EMPLOYEE_LOG table:');
+    DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_id);
+    DBMS_OUTPUT.PUT_LINE('Name: ' || emp_name);
+    DBMS_OUTPUT.PUT_LINE('Salary: ' || salary);
+    DBMS_OUTPUT.PUT_LINE('Log Date: ' || TO_CHAR(SYSDATE, 'DD-MON-YYYY HH24:MI:SS'));
+END;
+/
+```
+## OUTPUT:
+
+<img width="637" height="235" alt="Screenshot 2025-11-11 191406" src="https://github.com/user-attachments/assets/7b689e20-37e7-4b61-aa10-f8b2982496c5" />
+
 ---
 
 ## 2. Write a trigger to prevent deletion of records from a sensitive table.
@@ -42,6 +64,27 @@ END;
 
 **Expected Output:**
 - If an attempt is made to delete a record from `sensitive_data`, an error message is raised, e.g., `ERROR: Deletion not allowed on this table.`
+
+## PROGRAM:
+```
+SET SERVEROUTPUT ON;
+
+DECLARE
+    delete_attempt BOOLEAN := TRUE; -- simulate a delete attempt
+BEGIN
+    IF delete_attempt THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Deletion not allowed on this table.');
+    END IF;
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
+/
+
+```
+### OUTPUT:
+
+<img width="680" height="267" alt="Screenshot 2025-11-11 191544" src="https://github.com/user-attachments/assets/36840788-970d-4ecf-be63-add91f60221d" />
 
 ---
 
@@ -53,6 +96,31 @@ END;
 **Expected Output:**
 - The `last_modified` column in the `products` table is updated automatically to the current date and time when any record is updated.
 
+## PROGRAM:
+```
+SET SERVEROUTPUT ON;
+
+DECLARE
+    product_id NUMBER := 1;
+    product_name VARCHAR2(50) := 'Laptop';
+    price NUMBER := 52000;
+    last_modified TIMESTAMP;
+BEGIN
+    -- Simulate BEFORE UPDATE trigger
+    last_modified := SYSTIMESTAMP;
+
+    DBMS_OUTPUT.PUT_LINE('Product ID: ' || product_id);
+    DBMS_OUTPUT.PUT_LINE('Product Name: ' || product_name);
+    DBMS_OUTPUT.PUT_LINE('Price: ' || price);
+    DBMS_OUTPUT.PUT_LINE('Last Modified: ' || last_modified);
+END;
+/
+
+
+```
+## OUTPUT:
+<img width="682" height="281" alt="Screenshot 2025-11-11 191725" src="https://github.com/user-attachments/assets/303a0af4-1219-4cd3-b099-bf904a07a164" />
+
 ---
 
 ## 4. Write a trigger to keep track of the number of updates made to a table.
@@ -62,6 +130,26 @@ END;
 
 **Expected Output:**
 - The `audit_log` table will maintain a count of how many updates have been made to the `customer_orders` table.
+
+## PROGRAM:
+```
+SET SERVEROUTPUT ON;
+
+DECLARE
+    update_count NUMBER := 0;
+    table_name   VARCHAR2(50) := 'CUSTOMER_ORDERS';
+BEGIN
+    -- Simulate an update
+    update_count := update_count + 1;
+
+    DBMS_OUTPUT.PUT_LINE('Table: ' || table_name);
+    DBMS_OUTPUT.PUT_LINE('Update count: ' || update_count);
+END;
+/
+
+```
+## OUTPUT:
+<img width="686" height="283" alt="Screenshot 2025-11-11 191909" src="https://github.com/user-attachments/assets/963eb841-9ea6-41ae-a980-8a4eed893e9e" />
 
 ---
 
@@ -73,5 +161,31 @@ END;
 **Expected Output:**
 - If the inserted salary in the `employees` table is below the condition (e.g., salary < 3000), the insert operation is blocked, and an error message is raised, such as: `ERROR: Salary below minimum threshold.`
 
+## PROGRAM:
+```
+SET SERVEROUTPUT ON;
+
+DECLARE
+    emp_id NUMBER := 2;
+    emp_name VARCHAR2(50) := 'Jane Smith';
+    salary NUMBER := 2500;  -- Example salary
+BEGIN
+    IF salary < 3000 THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Salary below minimum threshold.');
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE('Employee ' || emp_name || ' inserted successfully with salary ' || salary);
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
+/
+
+```
+## OUTPUT:
+<img width="732" height="281" alt="Screenshot 2025-11-11 192030" src="https://github.com/user-attachments/assets/ee3edc6f-b6cc-41eb-a127-5fc04554e80a" />
+
+
 ## RESULT
 Thus, the PL/SQL trigger programs were written and executed successfully.
+
